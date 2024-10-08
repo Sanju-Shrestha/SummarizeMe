@@ -129,6 +129,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.summ
+summ/
+summ.bak/
 
 # Spyder project settings
 .spyderproject
