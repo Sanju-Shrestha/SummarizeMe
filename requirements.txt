@@ -8,6 +8,7 @@ notebook
 transformers
 transformers[sentencepiece]
 datasets
+evaluate
 sacrebleu
 rouge_score
 py7zr
