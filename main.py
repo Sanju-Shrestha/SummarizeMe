@@ -2,6 +2,7 @@ from src.summarize_me.pipelines.pipe_01_data_ingestion import DataIngestionPipel
 from src.summarize_me.pipelines.pipe_02_data_validation import DataValidationPipeline
 from src.summarize_me.pipelines.pipe_03_data_transformation import DataTransformationPipeline
 from src.summarize_me.pipelines.pipe_04_model_trainer import ModelTrainerPipeline
+from src.summarize_me.pipelines.pipe_05_model_evaluation import ModelEvaluationPipeline
 from src.summarize_me.logging import logger
 
 ELEMENT_01_NAME = "DATA INGESTION ELEMENT"
@@ -40,6 +41,16 @@ try:
     model_trainer_pipeline = ModelTrainerPipeline()
     model_trainer_pipeline.main()
     logger.info(f"## =============== {ELEMENT_04_NAME} Terminated Successfully!=================\n\nx************************x")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+ELEMENT_05_NAME = "MODEL EVALUATION ELEMENT"
+try:
+    logger.info(f"## =================== {ELEMENT_05_NAME} Started! ========================##")
+    model_evaluation_pipeline = ModelEvaluationPipeline()
+    model_evaluation_pipeline.run()
+    logger.info(f"## =============== {ELEMENT_05_NAME} Terminated Successfully!=================\n\nx************************x")
 except Exception as e:
     logger.exception(e)
     raise e
